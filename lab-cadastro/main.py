@@ -1,5 +1,4 @@
 import modules as md
-import json
 import random
 from time import sleep
 
@@ -46,13 +45,15 @@ while True:
                 
                 if resultExam == "S":
 
+                    #Atribuindo resultados aos exames
                     listaResultados = []
-
                     for exame in listaExames:
                         resultado = input(f"Digite o Resultado do exame {exame}: ")
                         listaResultados.append(resultado)
 
                     resultadoFinal = zip(listaExames, listaResultados) #Montando dicionario para registro
+
+                    #Mostrando dados cadastrados
                     print("Resultados cadastrados com sucesso!")
                     print("="*30)
                     sleep(2)
@@ -64,4 +65,30 @@ while True:
                         print(f"- {k}: {v}")
                         print("-"*30)
                         sleep(2)
-                    break 
+
+                    #Registrar esses dados no DB
+
+                    break
+    
+    elif menu == 2:
+        #Caminho para a opção de REGISTRAR resultados caso não tenha sido registrado anteriormente
+        print('teste2')
+        break
+
+
+    elif menu == 3:
+        #Caminho para a opção de CONSULTAR resultados
+        print('teste2')
+        break
+
+
+    elif menu == 4:
+        print("="*30)
+        print("Finalizando o programa...")
+        sleep(2)
+        print("")
+        print("Tenha um bom dia!")
+        sleep(2)
+        print("="*30)
+        break
+    

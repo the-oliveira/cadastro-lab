@@ -1,12 +1,11 @@
 import modules as md
-import random
 from time import sleep
+import csv
 
 
 pnome = str(input("Nome do Paciente: ")).upper
 
 while True:
-    
     print("="*30)
     print("[1] Cadastrar Exames")
     print("[2] Registrar Resultados")
@@ -60,14 +59,20 @@ while True:
                     print(f"{'Confirmando resultados: ':^30}")
                     print("="*30)
                     sleep(2)
+                    registrarTabela = {}
                     for k, v in resultadoFinal:
                         sleep(2)
                         print(f"- {k}: {v}")
+                        registrarTabela[k] = v
                         print("-"*30)
                         sleep(2)
 
                     #Registrar esses dados no DB
-
+                    print(registrarTabela)
+                    print(type(registrarTabela))
+                    with open('pacientes.csv', 'w', newline='', encoding='utf-8') as arquivo:
+                        escritor = csv.writer(arquivo)
+                        escritor.writerows(pnome, registrarTabela.keys(), registrarTabela.values())
                     break
     
     elif menu == 2:
